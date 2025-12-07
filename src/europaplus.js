@@ -47,6 +47,14 @@ class europaplus{
         let req=await fetch(`${this.api}/djs/${id}`,{method:"GET",headers: this.headers});
         return req.json()
     }
+    async singers_list(page=1){
+        let req=await fetch(`${this.api}/singers?page=${page}`,{method:"GET",headers: this.headers});
+        return req.json()
+    }
+    async get_singers(slug){
+        let req=await fetch(`${this.api}/singers/${slug}`,{method:"GET",headers: this.headers});
+        return req.json()
+    }
     async dj_list(){
         let req=await fetch(`${this.api}/djs`,{method:"GET",headers: this.headers});
         return req.json()
