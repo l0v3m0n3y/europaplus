@@ -1,7 +1,6 @@
 class europaplus{
     constructor(){
         this.api ="https://europaplus.ru/api"
-        this.api_2="https://europaplus.ru/local-api"
         this.headers={"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0","content-type":"application/json","Host":"europaplus.ru","Origin":"https://europaplus.ru","Referer":"https://europaplus.ru/"}
     }
     async main_page(){
@@ -74,10 +73,6 @@ class europaplus{
     }
     async get_schedule(){
         let req=await fetch(`${this.api}/schedule`,{method:"GET",headers: this.headers});
-        return req.json()
-    }
-    async stream_time(){
-        let req=await fetch(`${this.api_2}/stream-replace-time`,{method:"GET",headers: this.headers});
         return req.json()
     }
 }
