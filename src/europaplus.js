@@ -1,14 +1,19 @@
 class europaplus{
     constructor(){
         this.api ="https://europaplus.ru/api"
+        this.api_2 ="https://admin.europaplus.ru/api"
         this.headers={"user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0","content-type":"application/json","Host":"europaplus.ru","Origin":"https://europaplus.ru","Referer":"https://europaplus.ru/"}
     }
     async main_page(){
         let req=await fetch(`${this.api}/main`,{method:"GET",headers: this.headers});
         return req.json()
     }
+    async get_podcasts_episodes(podcast,start,finish){
+        let req=await fetch(`${this.api_2}/podcast-episodes?podcast=${podcast}&page=${page}`,{method:"GET",headers: this.headers});
+        return req.json()
+    }
     async get_playlist(date,start,finish){
-        let req=await fetch(`${this.api}/playlist?channel=ep&date={date}&time_start={start}&time_finish={finish}`,{method:"GET",headers: this.headers});
+        let req=await fetch(`${this.api}/playlist?channel=ep&date=${date}&time_start=${start}&time_finish=${finish}`,{method:"GET",headers: this.headers});
         return req.json()
     }
     async programs_list(){
